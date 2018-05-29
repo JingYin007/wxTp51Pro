@@ -2,7 +2,7 @@
 // +----------------------------------------------------------------------
 // | ThinkPHP [ WE CAN DO IT JUST THINK ]
 // +----------------------------------------------------------------------
-// | Copyright (c) 2006~2016 http://thinkphp.cn All rights reserved.
+// | Copyright (c) 2006~2018 http://thinkphp.cn All rights reserved.
 // +----------------------------------------------------------------------
 // | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
@@ -14,10 +14,8 @@ return [
     // | 应用设置
     // +----------------------------------------------------------------------
 
-    // 应用命名空间
-    'app_namespace'          => 'app',
     // 应用调试模式
-    'app_debug'              => true,
+    'app_debug'              => false,
     // 应用Trace
     'app_trace'              => false,
     // 应用模式状态
@@ -56,7 +54,7 @@ return [
     // +----------------------------------------------------------------------
 
     // 默认模块名
-    'default_module'         => 'api',
+    'default_module'         => 'index',
     // 禁止访问模块
     'deny_module_list'       => ['common'],
     // 默认控制器名
@@ -114,6 +112,8 @@ return [
     'request_cache'          => false,
     // 请求缓存有效期
     'request_cache_expire'   => null,
+    // 全局请求缓存排除规则
+    'request_cache_except'   => [],
 
     // +----------------------------------------------------------------------
     // | 模板设置
@@ -122,6 +122,8 @@ return [
     'template'               => [
         // 模板引擎类型 支持 php think 支持扩展
         'type'         => 'Think',
+        // 默认模板渲染规则 1 解析为小写+下划线 2 全部转换小写
+        'auto_rule'    => 1,
         // 模板路径
         'view_path'    => '',
         // 模板后缀
@@ -203,7 +205,7 @@ return [
         // SESSION_ID的提交变量,解决flash上传跨域
         'var_session_id' => '',
         // SESSION 前缀
-        'prefix'         => 'wx_',
+        'prefix'         => 'think',
         // 驱动方式 支持redis memcache memcached
         'type'           => '',
         // 是否自动开启 SESSION
